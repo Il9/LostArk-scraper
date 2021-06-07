@@ -1,0 +1,3 @@
+{
+  "extends": "@il9/eslint-config-base"
+}
