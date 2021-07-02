@@ -1,2 +1,2 @@
 # LostArk-scraper
-Scrap lostark web auction
+Scrape lostark web auction
