@@ -1,80 +1,104 @@
 export const AUCTION_URL = 'https://lostark.game.onstove.com/Auction';
 
-export const SELECTOR = {
-  search: {
-    modal: '#modal-deal-option',
-    opener:
-      '#lostark-wrapper > div > main > div > div.deal > div.deal-contents > form > fieldset > div > div.bt > button.button.button--deal-detail',
-    submit: '#modal-deal-option > div > div > div.lui-modal__button > button.lui-modal__search',
-
-    class: {
-      form: '#selClassDetail',
-      option: {
-        berserker: '#selClassDetail > div.lui-select__option > label:nth-child(2)',
-        destroyer: '#selClassDetail > div.lui-select__option > label:nth-child(3)',
-        warLord: '#selClassDetail > div.lui-select__option > label:nth-child(4)',
-        holyKnight: '#selClassDetail > div.lui-select__option > label:nth-child(5)',
-        arcana: '#selClassDetail > div.lui-select__option > label:nth-child(6)',
-        summoner: '#selClassDetail > div.lui-select__option > label:nth-child(7)',
-        bard: '#selClassDetail > div.lui-select__option > label:nth-child(8)',
-        battleMaster: '#selClassDetail > div.lui-select__option > label:nth-child(9)',
-        inFighter: '#selClassDetail > div.lui-select__option > label:nth-child(10)',
-        soulMaster: '#selClassDetail > div.lui-select__option > label:nth-child(11)',
-        lanceMaster: '#selClassDetail > div.lui-select__option > label:nth-child(12)',
-        striker: '#selClassDetail > div.lui-select__option > label:nth-child(13)',
-        blade: '#selClassDetail > div.lui-select__option > label:nth-child(14)',
-        demonic: '#selClassDetail > div.lui-select__option > label:nth-child(15)',
-        reaper: '#selClassDetail > div.lui-select__option > label:nth-child(16)',
-        hawkEye: '#selClassDetail > div.lui-select__option > label:nth-child(17)',
-        devilHunter: '#selClassDetail > div.lui-select__option > label:nth-child(18)',
-        blaster: '#selClassDetail > div.lui-select__option > label:nth-child(19)',
-        scouter: '#selClassDetail > div.lui-select__option > label:nth-child(20)',
-        gunSlinger: '#selClassDetail > div.lui-select__option > label:nth-child(21)',
-      },
-    },
-    category: {
-      form: '#selCategoryDetail > div.lui-select__title',
-      option: {
-        all: '#selCategoryDetail > div.lui-select__option > label:nth-child(1)',
-        equipAll: '#selCategoryDetail > div.lui-select__option > label:nth-child(2)',
-      },
-    },
-    grade: {
-      form: '#modal-deal-option > div > div > div.lui-modal__content > div:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(2) > div',
-      option: {
-        relics:
-          '#modal-deal-option > div > div > div.lui-modal__content > div:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(2) > div > div.lui-select__option > label:nth-child(7)',
-      },
-    },
-    tier: {
-      form: '#modal-deal-option > div > div > div.lui-modal__content > div:nth-child(2) > table > tbody > tr:nth-child(4) > td:nth-child(2) > div',
-      option: {
-        third:
-          '#modal-deal-option > div > div > div.lui-modal__content > div:nth-child(2) > table > tbody > tr:nth-child(4) > td:nth-child(2) > div > div.lui-select__option > label:nth-child(4)',
-      },
-    },
-    skill: {
-      form: '#selSkill_0 > div.lui-select__title',
-      option: '#selSkill_0 > div.lui-select__option > label',
-      min: '#txtSkillMin_0',
-      max: '#txtSkillMax_0',
-    },
+export const classes = [
+  {
+    name: 'berserker',
+    nameKR: '버서커',
+    skillLength: 19,
   },
-  list: {
-    loading: 'span.lui-loader',
-    row: '#auctionListTbody > tr',
-    column: {
-      name: 'td:nth-child(1) > div.grade > span.name',
-      count: 'td:nth-child(1) > div.grade > span.count',
-      effects: 'td:nth-child(1) > div.effect > ul',
-      time: 'td:nth-child(4) > div',
-      priceRow: 'td:nth-child(5) > div > em',
-      priceBuy: 'td:nth-child(6) > div > em',
-    },
-    pagination: {
-      active: '#auctionList > div.pagination > em.pagination__number--active',
-      next: '#auctionList > div.pagination > em.pagination__number--active ~ a',
-      last: '#auctionList > div.pagination > a.pagination__last',
-    },
+  {
+    name: 'destroyer',
+    nameKR: '디스트로이어',
+    skillLength: 18,
   },
-} as const;
+  {
+    name: 'warLord',
+    nameKR: '워로드',
+    skillLength: 18,
+  },
+  {
+    name: 'holyKnight',
+    nameKR: '홀리나이트',
+    skillLength: 18,
+  },
+  {
+    name: 'arcana',
+    nameKR: '아르카나',
+    skillLength: 17,
+  },
+  {
+    name: 'summoner',
+    nameKR: '서머너',
+    skillLength: 18,
+  },
+  {
+    name: 'bard',
+    nameKR: '바드',
+    skillLength: 17,
+  },
+  {
+    name: 'battleMaster',
+    nameKR: '배틀마스터',
+    skillLength: 18,
+  },
+  {
+    name: 'inFighter',
+    nameKR: '인파이터',
+    skillLength: 18,
+  },
+  {
+    name: 'soulMaster',
+    nameKR: '기공사',
+    skillLength: 17,
+  },
+  {
+    name: 'lanceMaster',
+    nameKR: '창술사',
+    skillLength: 20,
+  },
+  {
+    name: 'striker',
+    nameKR: '스트라이커',
+    skillLength: 18,
+  },
+  {
+    name: 'blade',
+    nameKR: '블레이드',
+    skillLength: 19,
+  },
+  {
+    name: 'demonic',
+    nameKR: '데모닉',
+    skillLength: 19,
+  },
+  {
+    name: 'reaper',
+    nameKR: '리퍼',
+    skillLength: 18,
+  },
+  {
+    name: 'hawkEye',
+    nameKR: '호크아이',
+    skillLength: 19,
+  },
+  {
+    name: 'devilHunter',
+    nameKR: '데빌헌터',
+    skillLength: 21,
+  },
+  {
+    name: 'blaster',
+    nameKR: '블래스터',
+    skillLength: 18,
+  },
+  {
+    name: 'scouter',
+    nameKR: '스카우터',
+    skillLength: 19,
+  },
+  {
+    name: 'gunSlinger',
+    nameKR: '건슬링어',
+    skillLength: 21,
+  },
+] as const;

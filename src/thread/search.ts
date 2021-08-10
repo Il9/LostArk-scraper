@@ -1,6 +1,6 @@
-import { SELECTOR } from '@src/constants';
+import { SELECTOR } from '@src/selector';
 import { CATEGORY, GRADE, TIER } from '@src/types';
-import { PagePipe, PagePipeCurry, Option } from './types';
+import { PagePipe, PagePipeCurry, Option } from '@src/thread/types';
 
 const openSearch: PagePipe = async page => {
   await page.click(SELECTOR.search.opener);
@@ -16,7 +16,7 @@ const submitSearch: PagePipe = async page => {
   return page;
 };
 
-const createSkillIndexSelector = (index: number) => `${SELECTOR.search.skill.option}:nth-child(${index})`;
+const createIndexSelector = (selector: string, index: number) => `${selector}:nth-child(${index + 2})`;
 
 const DEFAULT_BASE_OPTION = {
   category: Object.keys(SELECTOR.search.category.option)[1] as CATEGORY,
@@ -41,17 +41,17 @@ const setOption: PagePipeCurry<Option> = option => async page => {
   await page.click(SELECTOR.search.category.form);
   await page.click(SELECTOR.search.category.option[fullOption.category]);
 
-  await page.click(SELECTOR.search.class.form);
-  await page.click(SELECTOR.search.class.option[fullOption.class]);
-
   await page.click(SELECTOR.search.grade.form);
   await page.click(SELECTOR.search.grade.option[fullOption.grade]);
 
   await page.click(SELECTOR.search.tier.form);
   await page.click(SELECTOR.search.tier.option[fullOption.tier]);
 
+  await page.click(SELECTOR.search.class.form);
+  await page.click(createIndexSelector(SELECTOR.search.class.option, fullOption.class.index));
+
   await page.click(SELECTOR.search.skill.form);
-  await page.click(createSkillIndexSelector(fullOption.skill.index));
+  await page.click(createIndexSelector(SELECTOR.search.skill.option, fullOption.skill.index));
   await page.type(SELECTOR.search.skill.min, String(fullOption.skill.min));
   await page.type(SELECTOR.search.skill.max, String(fullOption.skill.max));
 

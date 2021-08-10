@@ -1,12 +1,21 @@
 import * as puppeteer from 'puppeteer';
+
+import { classes } from '@src/constants';
 import * as core from '@src/core';
 
-export async function scrape() {
-  const browser = await puppeteer.launch({ headless: false });
+const scrape = async () => {
+  const results = await Promise.all(
+    classes.map(async ({ name }, index) => {
+      const browser = await puppeteer.launch({ headless: true });
+      const coreResults = await core.run({ class: { index } })(browser);
 
-  const results = await core.run({ class: 'gunSlinger' })(browser);
+      browser.close();
+
+      return { [name]: coreResults };
+    })
+  );
 
   console.log(JSON.stringify(results));
-}
+};
 
 scrape();

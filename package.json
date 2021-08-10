@@ -6,9 +6,9 @@
   "author": "Il9 <rntpwn90@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn run ts-node src/index.ts",
-    "start:dist": "yarn run ts-node dist/index.js",
-    "ts-node": "ts-node -r tsconfig-paths/register --files"
+    "ts-node": "ts-node -r tsconfig-paths/register --files",
+    "scrape": "yarn run ts-node src/index.ts",
+    "skillLengthChangedLog": "yarn run ts-node src/scripts/skillLengthChangedLog.ts"
   },
   "devDependencies": {
     "@il9/eslint-config-base": "^1.0.7",

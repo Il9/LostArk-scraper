@@ -1,9 +1,11 @@
-import { SELECTOR } from './constants';
+import { SELECTOR } from '@src/selector';
 
 export type CATEGORY = keyof typeof SELECTOR.search.category.option;
-export type CLASS = keyof typeof SELECTOR.search.class.option;
 export type GRADE = keyof typeof SELECTOR.search.grade.option;
 export type TIER = keyof typeof SELECTOR.search.tier.option;
+export type CLASS = {
+  index: number;
+};
 export type Skill = {
   index: number;
   min: 1 | 2 | 3 | 4;

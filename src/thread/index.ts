@@ -1,8 +1,8 @@
 import { AUCTION_URL } from '@src/constants';
 import { Item } from '@src/types';
-import { PagePipe, PagePipeCurry, Option } from './types';
-import { search } from './search';
-import { scrapeList } from './list';
+import { PagePipe, PagePipeCurry, Option } from '@src/thread/types';
+import { search } from '@src/thread/search';
+import { scrapeList } from '@src/thread/list';
 
 const connect: PagePipe = async page => {
   await page.goto(AUCTION_URL, { waitUntil: 'networkidle0' });

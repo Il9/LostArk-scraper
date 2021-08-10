@@ -1,7 +1,7 @@
-import { SELECTOR } from '@src/constants';
+import { SELECTOR } from '@src/selector';
 import { Item } from '@src/types';
-import { PagePipe } from './types';
-import { parseName, parseCount, parseEffects, parseTime, parsePriceRow, parsePriceBuy } from './parser';
+import { PagePipe } from '@src/thread/types';
+import { parseName, parseCount, parseEffects, parseTime, parsePriceRow, parsePriceBuy } from '@src/thread/parser';
 
 interface ExposedFunction {
   parseName: typeof parseName;
@@ -36,7 +36,14 @@ const isExistNextItems: PagePipe = async page => {
 };
 
 const next: PagePipe = async page => {
-  await page.click(SELECTOR.list.pagination.next);
+  const isNextLast = await page.$eval(SELECTOR.list.pagination.next, element => element.hasAttribute('disabled'));
+
+  if (isNextLast) {
+    await page.click(SELECTOR.list.pagination.last);
+  } else {
+    await page.click(SELECTOR.list.pagination.next);
+  }
+
   await page.waitForSelector(SELECTOR.list.loading, { hidden: true });
 
   return page;
