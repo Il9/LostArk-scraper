@@ -9,7 +9,7 @@ export const classes = [
   {
     name: 'destroyer',
     nameKR: '디스트로이어',
-    skillLength: 18,
+    skillLength: 17,
   },
   {
     name: 'warLord',
@@ -29,7 +29,7 @@ export const classes = [
   {
     name: 'summoner',
     nameKR: '서머너',
-    skillLength: 18,
+    skillLength: 17,
   },
   {
     name: 'bard',
@@ -64,12 +64,12 @@ export const classes = [
   {
     name: 'blade',
     nameKR: '블레이드',
-    skillLength: 19,
+    skillLength: 18,
   },
   {
     name: 'demonic',
     nameKR: '데모닉',
-    skillLength: 19,
+    skillLength: 18,
   },
   {
     name: 'reaper',
@@ -79,7 +79,7 @@ export const classes = [
   {
     name: 'hawkEye',
     nameKR: '호크아이',
-    skillLength: 19,
+    skillLength: 18,
   },
   {
     name: 'devilHunter',
@@ -89,12 +89,12 @@ export const classes = [
   {
     name: 'blaster',
     nameKR: '블래스터',
-    skillLength: 18,
+    skillLength: 17,
   },
   {
     name: 'scouter',
     nameKR: '스카우터',
-    skillLength: 19,
+    skillLength: 18,
   },
   {
     name: 'gunSlinger',

@@ -37,6 +37,9 @@ const skillLengthChangedLog = async () => {
   await page.click(SELECTOR.search.opener);
   await page.waitForSelector(SELECTOR.search.modal, { visible: true });
 
+  await page.click(SELECTOR.search.category.form);
+  await page.click(SELECTOR.search.category.option['equipAll']);
+
   const skillLengthData = await getAllClassSkillLengthData(page);
   const changedLogData = classes
     .map(({ nameKR, skillLength }) =>
