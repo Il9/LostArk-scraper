@@ -54,6 +54,13 @@ const getEmptyItems = () => [];
 const scrapeItems: PagePipe<Item[]> = async page => {
   const rows = await page.$$(SELECTOR.list.row);
 
+  const firstRowClassName = await rows[0].evaluate(element => element.className);
+  const isEmptyRows = firstRowClassName.includes('empty');
+
+  if (isEmptyRows) {
+    return [];
+  }
+
   return await Promise.all(
     rows.map(async row => ({
       name: await row.$eval(SELECTOR.list.column.name, element =>
