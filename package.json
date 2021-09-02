@@ -11,7 +11,7 @@
     "skillLengthChangedLog": "yarn run ts-node src/scripts/skillLengthChangedLog.ts"
   },
   "devDependencies": {
-    "@il9/eslint-config-base": "^1.0.7",
+    "@il9/eslint-config-base": "^1.0.11",
     "@types/node": "^15.12.1",
     "@types/puppeteer": "^5.4.3",
     "eslint": "^7.28.0",
